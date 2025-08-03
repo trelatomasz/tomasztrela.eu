@@ -1,0 +1,164 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Sample blog posts data
+const posts = [
+  {
+    title: "Building Modern Web Applications with Astro",
+    excerpt: "Exploring the benefits of Astro for building fast, modern web applications with excellent developer experience.",
+    date: "2024-01-15",
+    readTime: "5 min read",
+    tags: ["Astro", "Web Development", "Performance"]
+  },
+  {
+    title: "The Power of Tailwind CSS in 2024",
+    excerpt: "How Tailwind CSS has evolved and why it's still the go-to choice for rapid UI development.",
+    date: "2024-01-10",
+    readTime: "7 min read",
+    tags: ["CSS", "Tailwind", "Design"]
+  },
+  {
+    title: "Optimizing React Applications for Performance",
+    excerpt: "Practical techniques and best practices for improving React application performance and user experience.",
+    date: "2024-01-05",
+    readTime: "10 min read",
+    tags: ["React", "Performance", "JavaScript"]
+  },
+  {
+    title: "Getting Started with TypeScript",
+    excerpt: "A beginner's guide to TypeScript and how it can improve your JavaScript development workflow.",
+    date: "2023-12-28",
+    readTime: "8 min read",
+    tags: ["TypeScript", "JavaScript", "Tutorial"]
+  },
+  {
+    title: "The Future of Web Development",
+    excerpt: "Exploring emerging trends and technologies that will shape the future of web development.",
+    date: "2023-12-20",
+    readTime: "12 min read",
+    tags: ["Web Development", "Future", "Technology"]
+  },
+  {
+    title: "Building Accessible Web Applications",
+    excerpt: "Best practices for creating web applications that are accessible to all users, including those with disabilities.",
+    date: "2023-12-15",
+    readTime: "9 min read",
+    tags: ["Accessibility", "Web Development", "UX"]
+  }
+];
+---
+
+<Layout title="Blog - Tomasz Trela">
+  <div class="space-y-8">
+    <!-- Header -->
+    <section class="text-center py-8">
+      <h1 class="text-4xl md:text-5xl font-bold text-primary-400 mb-4">
+        Blog
+      </h1>
+      <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+        Thoughts, tutorials, and insights about web development, technology, and the future of the web.
+      </p>
+    </section>
+
+    <!-- Featured Post -->
+    <section class="py-8">
+      <h2 class="text-2xl font-bold text-primary-400 mb-6">Featured Post</h2>
+      <div class="bg-gray-800 rounded-lg p-8">
+        <div class="flex items-center space-x-4 mb-4">
+          <span class="px-3 py-1 bg-primary-600 text-primary-100 text-sm rounded-full">Featured</span>
+          <span class="text-gray-400 text-sm">{posts[0].date}</span>
+          <span class="text-gray-400 text-sm">{posts[0].readTime}</span>
+        </div>
+        <h3 class="text-2xl font-bold text-primary-400 mb-3">{posts[0].title}</h3>
+        <p class="text-gray-300 mb-4 leading-relaxed">{posts[0].excerpt}</p>
+        <div class="flex flex-wrap gap-2 mb-4">
+          {posts[0].tags.map(tag => (
+            <span class="px-2 py-1 bg-gray-700 text-gray-300 text-sm rounded">{tag}</span>
+          ))}
+        </div>
+        <a href="#" class="inline-flex items-center text-primary-400 hover:text-primary-300 transition-colors">
+          Read More
+          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- All Posts -->
+    <section class="py-8">
+      <h2 class="text-2xl font-bold text-primary-400 mb-6">All Posts</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {posts.slice(1).map(post => (
+          <article class="bg-gray-800 rounded-lg p-6 hover:bg-gray-700 transition-colors">
+            <div class="flex items-center space-x-4 mb-3">
+              <span class="text-gray-400 text-sm">{post.date}</span>
+              <span class="text-gray-400 text-sm">{post.readTime}</span>
+            </div>
+            <h3 class="text-xl font-semibold text-primary-400 mb-3">{post.title}</h3>
+            <p class="text-gray-300 mb-4 leading-relaxed">{post.excerpt}</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              {post.tags.map(tag => (
+                <span class="px-2 py-1 bg-gray-700 text-gray-300 text-sm rounded">{tag}</span>
+              ))}
+            </div>
+            <a href="#" class="inline-flex items-center text-primary-400 hover:text-primary-300 transition-colors">
+              Read More
+              <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- Newsletter Signup -->
+    <section class="py-8">
+      <div class="bg-gray-800 rounded-lg p-8 text-center">
+        <h2 class="text-2xl font-bold text-primary-400 mb-4">Stay Updated</h2>
+        <p class="text-gray-300 mb-6 max-w-md mx-auto">
+          Get notified when I publish new articles about web development and technology.
+        </p>
+        <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+          <input 
+            type="email" 
+            placeholder="Enter your email" 
+            class="flex-1 px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-gray-100 placeholder-gray-400 focus:outline-none focus:border-primary-400"
+          />
+          <button 
+            type="submit" 
+            class="px-6 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition-colors"
+          >
+            Subscribe
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="py-8">
+      <h2 class="text-2xl font-bold text-primary-400 mb-6">Categories</h2>
+      <div class="flex flex-wrap gap-3">
+        <a href="#" class="px-4 py-2 bg-gray-800 hover:bg-gray-700 text-gray-300 rounded-lg transition-colors">
+          Web Development
+        </a>
+        <a href="#" class="px-4 py-2 bg-gray-800 hover:bg-gray-700 text-gray-300 rounded-lg transition-colors">
+          React
+        </a>
+        <a href="#" class="px-4 py-2 bg-gray-800 hover:bg-gray-700 text-gray-300 rounded-lg transition-colors">
+          TypeScript
+        </a>
+        <a href="#" class="px-4 py-2 bg-gray-800 hover:bg-gray-700 text-gray-300 rounded-lg transition-colors">
+          Performance
+        </a>
+        <a href="#" class="px-4 py-2 bg-gray-800 hover:bg-gray-700 text-gray-300 rounded-lg transition-colors">
+          Tutorials
+        </a>
+        <a href="#" class="px-4 py-2 bg-gray-800 hover:bg-gray-700 text-gray-300 rounded-lg transition-colors">
+          Technology
+        </a>
+      </div>
+    </section>
+  </div>
+</Layout> 
