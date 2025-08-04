@@ -1,0 +1,26 @@
+---
+export interface Props {
+  categories: string[];
+  activeCategory?: string;
+}
+
+const { categories, activeCategory } = Astro.props;
+---
+
+<section class="py-8">
+  <h2 class="text-2xl font-bold text-primary-400 mb-6">Categories</h2>
+  <div class="flex flex-wrap gap-3">
+    {categories.map(category => (
+      <a 
+        href={`/blog/category/${category.toLowerCase().replace(/\s+/g, '-')}`}
+        class={`px-4 py-2 rounded-lg transition-colors ${
+          activeCategory === category 
+            ? 'bg-primary-600 text-white' 
+            : 'bg-gray-800 hover:bg-gray-700 text-gray-300'
+        }`}
+      >
+        {category}
+      </a>
+    ))}
+  </div>
+</section> 

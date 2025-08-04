@@ -1,149 +1,108 @@
-# tomasztrela.eu - Personal Website
+# Tomasz Trela - Personal Website
 
-A modern, responsive personal website built with Astro and Tailwind CSS.
+A modern, clean personal website built with Astro and Tailwind CSS, featuring a component-based blog system.
 
 ## 🚀 Features
 
-- **Modern Design**: Clean, minimal design with dark mode
-- **Responsive**: Mobile-first approach with excellent mobile experience
-- **Fast**: Built with Astro for optimal performance
-- **SEO Friendly**: Static site generation with proper meta tags
-- **Accessible**: Following web accessibility best practices
+- **Modern Tech Stack**: Built with Astro for optimal performance
+- **Clean Components**: Separated content from styles using reusable components
+- **Dynamic Blog**: Individual markdown files for each blog post
+- **Type Safety**: Full TypeScript support with content collections
+- **Responsive Design**: Beautiful UI that works on all devices
+- **Performance Optimized**: Fast loading with static generation
 
 ## 📁 Project Structure
 
 ```
 src/
-├── layouts/
-│   └── Layout.astro          # Main layout component
-├── pages/
-│   ├── index.astro           # Home page
-│   ├── mystuff.astro         # Portfolio/Projects page
-│   └── blog.astro            # Blog page
-└── components/               # Reusable components (future)
-public/
-└── favicon.svg              # Website favicon
+├── components/          # Reusable UI components
+│   ├── BlogCard.astro
+│   ├── BlogHeader.astro
+│   ├── CategoryFilter.astro
+│   └── NewsletterSignup.astro
+├── content/
+│   └── blog/           # Individual blog post markdown files
+├── layouts/            # Page layouts
+├── pages/              # Astro pages
+├── utils/              # Utility functions
+└── content/config.ts   # Content collections configuration
 ```
 
-## 🛠️ Tech Stack
-
-- **Framework**: [Astro](https://astro.build/) - Static site generator
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
-- **Hosting**: GitHub Pages (planned)
-- **DNS**: nazwa.pl
-
-## 🚀 Getting Started
+## 🛠️ Development
 
 ### Prerequisites
 
-- Node.js (version 16 or higher)
+- Node.js 18+ 
 - npm or yarn
 
 ### Installation
 
-1. Clone the repository:
 ```bash
-git clone https://github.com/tomasztrela/tomasztrela.eu-github.git
+# Clone the repository
+git clone <repository-url>
 cd tomasztrela.eu-github
-```
 
-2. Install dependencies:
-```bash
+# Install dependencies
 npm install
-```
 
-3. Start the development server:
-```bash
+# Start development server
 npm run dev
 ```
 
-4. Open your browser and visit `http://localhost:4321`
-
-### Building for Production
+### Building
 
 ```bash
+# Build for production
 npm run build
+
+# Preview production build
+npm run preview
 ```
 
-The built files will be in the `dist/` directory.
+## 📝 Blog System
 
-## 📄 Pages
+The blog uses Astro's content collections for type-safe content management:
 
-### Home Page (`/`)
-- Personal introduction and description
-- Tech stack overview
-- Quick links to other sections
+- **Individual Posts**: Each blog post is a separate markdown file in `src/content/blog/`
+- **Frontmatter**: Posts include metadata like title, excerpt, date, tags, etc.
+- **Dynamic Routes**: Individual post pages are generated automatically
+- **Components**: Clean separation of content and presentation
 
-### My Stuff (`/mystuff`)
-- Portfolio of projects
-- GitHub activity and statistics
-- Featured projects with descriptions
-- Contact information
+### Adding a New Blog Post
 
-### Blog (`/blog`)
-- Featured blog posts
-- All blog posts with categories
-- Newsletter signup
-- Category filtering
+1. Create a new markdown file in `src/content/blog/`
+2. Add frontmatter with required metadata:
 
-## 🎨 Design System
+```markdown
+---
+title: "Your Post Title"
+excerpt: "Brief description of the post"
+date: "2024-01-01"
+readTime: "5 min read"
+tags: ["Tag1", "Tag2"]
+featured: false
+---
 
-### Colors
-- **Primary**: Blue (#0ea5e9) - Used for accents and links
-- **Background**: Dark gray (#111827) - Main background
-- **Surface**: Medium gray (#1f2937) - Cards and sections
-- **Text**: Light gray (#f3f4f6) - Primary text
+# Your Post Content
 
-### Typography
-- **Headings**: Bold, primary color
-- **Body**: Regular weight, light gray
-- **Links**: Primary color with hover effects
+Your markdown content here...
+```
 
-## 🔧 Configuration
+## 🎨 Components
 
-### Astro Configuration
-The site is configured in `astro.config.mjs` with:
-- Tailwind CSS integration
-- Site URL configuration
-- Base path settings
+The website uses a clean component architecture:
 
-### Tailwind Configuration
-Custom Tailwind configuration in `tailwind.config.mjs` includes:
-- Dark mode support
-- Custom color palette
-- Responsive breakpoints
+- **BlogCard**: Displays individual blog post previews
+- **BlogHeader**: Page headers with title and description
+- **CategoryFilter**: Tag-based filtering system
+- **NewsletterSignup**: Email subscription component
 
-## 📱 Responsive Design
-
-The website is built with a mobile-first approach:
-- **Mobile**: Single column layout, collapsible navigation
-- **Tablet**: Two-column grid for projects and blog posts
-- **Desktop**: Full layout with sidebar navigation
+All components are styled with Tailwind CSS and are fully responsive.
 
 ## 🚀 Deployment
 
-### GitHub Pages
-1. Build the project: `npm run build`
-2. Push the `dist/` folder to the `gh-pages` branch
-3. Configure GitHub Pages to serve from the `gh-pages` branch
-
-### Custom Domain
-The site is configured for `tomasztrela.eu` domain with DNS managed by nazwa.pl.
-
-## 🤝 Contributing
-
-This is a personal website, but suggestions and improvements are welcome!
+The site is configured for deployment on GitHub Pages or any static hosting service.
 
 ## 📄 License
 
 This project is open source and available under the [MIT License](LICENSE).
-
-## 📞 Contact
-
-- **Website**: [tomasztrela.eu](https://tomasztrela.eu)
-- **GitHub**: [@tomasztrela](https://github.com/tomasztrela)
-- **Email**: contact@tomasztrela.eu
-
----
-
-Built with ❤️ using Astro and Tailwind CSS
