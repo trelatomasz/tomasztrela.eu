@@ -5,8 +5,7 @@ export default defineConfig({
   integrations: [tailwind()],
   site: 'https://tomasztrela.eu',
   base: '/',
-  output: 'static',
   build: {
-    assetsPrefix: '/static',
+    assets: 'static',
   },
 }); 
