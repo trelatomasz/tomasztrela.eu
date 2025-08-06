@@ -1,0 +1,61 @@
+flowchart TD
+    %% Development Phase
+    B[Markdown files in src/content/blog/] --> C[Astro Content Collections]
+    C --> D[Type-safe schema validation]
+    
+    %% Astro Processing
+    D --> E[Astro builds static pages]
+    E --> F[Markdown → HTML conversion]
+    F --> G[Component rendering]
+    G --> H[CSS processing with Tailwind]
+    
+    %% Build Output
+    H --> I[Static HTML files]
+    H --> J[CSS bundles]
+    H --> K[Optimized assets]
+    
+    %% Deployment
+    I --> L[npm run build]
+    J --> L
+    K --> L
+    L --> M[dist/ folder generated]
+    M --> N[GitHub Pages deployment]
+    N --> O[Static site served from GitHub]
+    
+    %% Content Flow
+    B --> P[Frontmatter metadata]
+    P --> Q[Blog post metadata]
+    Q --> R[Category filtering]
+    Q --> S[Tag management]
+    
+    %% Styling
+    T[Tailwind CSS] --> U[Utility classes]
+    U --> V[Responsive design]
+    V --> W[Typography styling]
+    
+    %% GitHub Integration
+    X[Git repository] --> Y[GitHub Actions]
+    Y --> Z[Automatic deployment]
+    Z --> AA[Custom domain: tomasztrela.eu]
+  
+    
+    %% Styling connections
+    W --> G
+    U --> G
+    
+    %% GitHub connections
+    X --> N
+    AA --> O
+    
+    %% Styling
+    classDef devPhase fill:#e1f5fe
+    classDef astroPhase fill:#f3e5f5
+    classDef buildPhase fill:#e8f5e8
+    classDef deployPhase fill:#fff3e0
+    classDef userPhase fill:#fce4ec
+    
+    class A,B devPhase
+    class C,D,E,F,G astroPhase
+    class H,I,J,K,L,M buildPhase
+    class N,O,X,Y,Z,AA deployPhase
+    class BB,CC userPhase

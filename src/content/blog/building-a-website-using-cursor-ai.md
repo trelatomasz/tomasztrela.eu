@@ -67,70 +67,22 @@ First, I asked Cursor to explain the styles used in Markdown. I wanted to unders
 ✅ Styles fixed with just a 1 prompt! 🎨✨
 
 ![A prompt to fix styles](/images/blog/post-1/fix-styles-prompt.png)
-## Add a diagram
+
+## Add some ~~diagrams~~
+
 Finally, I want my blog to contain nice diagrams. Content with diagrams is so much more professional!
 Let's add a diagram showing how this page is constructed.
 
-Oh shoot! Not so easy. The idea to embedd Marmaid inside a Mardown inside Astro template. Might be too much. Going back and forth with Cursor. It claims it knows, but apparently it does not work. And applying few solutions, one even worked somehow, but it's hard to get back to it :/
+In general. It's an Astro framework page, which uses Markdown templates. I want to add support for Mermaid diagrams.
 
-```mermaid
-graph TD
-    A[Markdown Content] --> B[Astro Content Collections]
-    B --> C[Blog Post Template]
-    C --> D[Layout Component]
-    D --> E[Final HTML Page]
-    
-    F[Tailwind CSS] --> G[Prose Styling]
-    G --> C
-    
-    H[Mermaid Diagrams] --> I[Diagram Component]
-    I --> C
-    
-    J[Static Assets] --> K[Public Directory]
-    K --> E
-    
-    style A fill:#60a5fa,stroke:#1e3a8a,stroke-width:2px,color:#fff
-    style B fill:#93c5fd,stroke:#1e3a8a,stroke-width:2px,color:#fff
-    style C fill:#bfdbfe,stroke:#1e3a8a,stroke-width:2px,color:#fff
-    style D fill:#dbeafe,stroke:#1e3a8a,stroke-width:2px,color:#fff
-    style E fill:#eff6ff,stroke:#1e3a8a,stroke-width:2px,color:#1e3a8a
-    
-    style F fill:#fbbf24,stroke:#92400e,stroke-width:2px,color:#fff
-    style G fill:#fcd34d,stroke:#92400e,stroke-width:2px,color:#fff
-    style H fill:#34d399,stroke:#065f46,stroke-width:2px,color:#fff
-    style I fill:#6ee7b7,stroke:#065f46,stroke-width:2px,color:#fff
-    style J fill:#a78bfa,stroke:#5b21b6,stroke-width:2px,color:#fff
-    style K fill:#c4b5fd,stroke:#5b21b6,stroke-width:2px,color:#fff
-```
+Oh shoot! Not so easy. The idea to embed Mermaid inside a Markdown inside Astro template is nice! And Cursor happily creates solution, only it's not working. Vibe coding begins! Going back and forth with Cursor. It claims it knows solution, but apparently it does not work. And when I think on the proposed solution, they just should not work. After spending 1.5h I decide to change strategy. Mermaid templates in browser is nice, but let's simplify it a bit. Let's generate diagrams images and refer to them in Markdown. This should be easier.
 
-```mermaid
-sequenceDiagram
-    participant U as User
-    participant C as Cursor AI
-    participant A as Astro
-    participant T as Tailwind
-    participant M as Mermaid
-    
-    U->>C: Ask for web tech recommendations
-    C->>U: Suggest Astro + Tailwind + Markdown
-    
-    U->>C: Request blog structure
-    C->>U: Generate initial messy structure
-    
-    U->>C: Refine requirements
-    C->>U: Create clean component architecture
-    
-    U->>A: Set up content collections
-    A->>U: Individual blog posts
-    
-    U->>T: Configure prose styling
-    T->>U: Beautiful typography
-    
-    U->>M: Add diagram support
-    M->>U: Professional diagrams
-    
-    Note over U,M: Result: Clean, maintainable website
-```
+### Website Architecture & Deployment Flow
+
+Here's a comprehensive diagram showing how this Astro website works, from development to deployment:
+
+![Website Architecture & Deployment Flow](/images/blog/post-1/site-architecture.png)
+
 
 
 
