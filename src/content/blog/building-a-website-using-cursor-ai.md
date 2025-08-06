@@ -4,7 +4,7 @@ excerpt: "Exploring the benefits of Cursor AI for building websites."
 timeSpent: "3 hours"
 date: "2025-08-03"
 readTime: "5 min read"
-tags: ["Astro", "Web Development", "Cursor AI"]
+tags: ["Astro", "WebDevelopment", "CursorAI", "VibeCoding"]
 featured: true
 ---
 
@@ -83,7 +83,7 @@ Here's a comprehensive diagram showing how this Astro website works, from develo
 
 ![Website Architecture & Deployment Flow](/images/blog/post-1/site-architecture.png)
 
-
+Success! 
 
 
 ## Lessons Learned

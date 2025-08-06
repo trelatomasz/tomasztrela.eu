@@ -1,51 +1,57 @@
 flowchart TD
     %% Development Phase
-    B[Markdown files in src/content/blog/] --> C[Astro Content Collections]
+    A[Developer writes content] --> B[Markdown files in src/content/blog/]
+    B --> C[Astro Content Collections]
     C --> D[Type-safe schema validation]
     
+    %% Mermaid Diagram Generation
+    A --> E[Mermaid .mmd files in src/diagrams/]
+    E --> F[Diagram generation script]
+    F --> G[PNG images in public/images/]
+    
     %% Astro Processing
-    D --> E[Astro builds static pages]
-    E --> F[Markdown → HTML conversion]
-    F --> G[Component rendering]
-    G --> H[CSS processing with Tailwind]
+    D --> H[Astro builds static pages]
+    H --> I[Markdown → HTML conversion]
+    I --> J[Component rendering]
+    J --> K[CSS processing with Tailwind]
     
     %% Build Output
-    H --> I[Static HTML files]
-    H --> J[CSS bundles]
-    H --> K[Optimized assets]
+    K --> L[Static HTML files]
+    G --> L
     
     %% Deployment
-    I --> L[npm run build]
-    J --> L
-    K --> L
-    L --> M[dist/ folder generated]
-    M --> N[GitHub Pages deployment]
-    N --> O[Static site served from GitHub]
+    L --> M[npm run build]
+    M --> N[dist/ folder generated]
+    N --> O[GitHub Pages deployment]
+    O --> P[Static site served from GitHub]
     
     %% Content Flow
-    B --> P[Frontmatter metadata]
-    P --> Q[Blog post metadata]
-    Q --> R[Category filtering]
-    Q --> S[Tag management]
+    B --> Q[Frontmatter metadata]
+    Q --> R[Blog post metadata]
+    R --> S[Category filtering]
+    R --> T[Tag management]
     
     %% Styling
-    T[Tailwind CSS] --> U[Utility classes]
-    U --> V[Responsive design]
-    V --> W[Typography styling]
+    U[Tailwind CSS] --> V[Utility classes]
+    V --> W[Responsive design]
+    W --> X[Typography styling]
     
     %% GitHub Integration
-    X[Git repository] --> Y[GitHub Actions]
-    Y --> Z[Automatic deployment]
-    Z --> AA[Custom domain: tomasztrela.eu]
-  
+    Y[Git repository] --> Z[GitHub Actions]
+    Z --> AA[Automatic deployment]
+    AA --> BB[Custom domain: tomasztrela.eu]
+    
+    %% User Access
+    P --> CC[Users access website]
+    CC --> DD[Fast static content delivery]
     
     %% Styling connections
-    W --> G
-    U --> G
+    X --> J
+    V --> J
     
     %% GitHub connections
-    X --> N
-    AA --> O
+    Y --> O
+    BB --> P
     
     %% Styling
     classDef devPhase fill:#e1f5fe
@@ -53,9 +59,11 @@ flowchart TD
     classDef buildPhase fill:#e8f5e8
     classDef deployPhase fill:#fff3e0
     classDef userPhase fill:#fce4ec
+    classDef diagramPhase fill:#fff8e1
     
-    class A,B devPhase
-    class C,D,E,F,G astroPhase
-    class H,I,J,K,L,M buildPhase
-    class N,O,X,Y,Z,AA deployPhase
-    class BB,CC userPhase
+    class A,B,E devPhase
+    class C,D,H,I,J astroPhase
+    class F,G,K,L,M,N buildPhase
+    class O,P,Y,Z,AA,BB deployPhase
+    class CC,DD userPhase
+    class Q,R,S,T diagramPhase
